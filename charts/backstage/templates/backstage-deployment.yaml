@@ -160,8 +160,7 @@ spec:
             {{- end }}
           ports:
             - name: backend
-              containerPort: 3000
-              # {{ .Values.backstage.containerPorts.backend }}
+              containerPort: {{ .Values.backstage.containerPorts.backend }}
               protocol: TCP
             - name: metrics
               containerPort: 9464
