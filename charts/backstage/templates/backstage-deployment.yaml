@@ -160,14 +160,15 @@ spec:
             {{- end }}
           ports:
             - name: backend
-              containerPort: {{ .Values.backstage.containerPorts.backend }}
+              containerPort: 3000
+              # {{ .Values.backstage.containerPorts.backend }}
               protocol: TCP
             - name: metrics
               containerPort: 9464
               protocol: TCP
-            - name: local
-              containerPort: 3000
-              protocol: TCP
+#            - name: local
+#              containerPort: 3000
+#              protocol: TCP
           {{- if (or .Values.backstage.extraAppConfig .Values.backstage.appConfig (and .Values.backstage.extraVolumeMounts .Values.backstage.extraVolumes)) }}
           volumeMounts:
             {{- range .Values.backstage.extraAppConfig }}
